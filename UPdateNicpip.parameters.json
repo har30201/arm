@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "nicname": {
+            "value": "windowsVM1-NIC"
+        },
+        "nic_pipname": {
+            "value": "windowsvm1-pip"
+        },
+        "nic_vnetname": {
+            "value": "rom-arm-vnet"
+        },
+        "nic_subnetname": {
+            "value": "new_subnet"
+        }
+    }
+}

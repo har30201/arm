@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "nicname": {
+            "type": "string",
+            "defaultValue": "networkInterface1"
+        },
+        "nic_pipname": {
+            "type": "string",
+            "defaultValue": "windowsVM1-PublicIP"
+        },
+        "nic_vnetname": {
+            "type": "string",
+            "defaultValue": "virtualNetwork1"
+        },
+        "nic_subnetname": {
+            "type": "string",
+            "defaultValue": "subnet1"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [{
+        "name": "[parameters('nicname')]",
+        "type": "Microsoft.Network/networkInterfaces",
+        "apiVersion": "2019-11-01",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "ipConfigurations": [
+                {
+                    "name": "ipConfig1",
+                    "properties": {
+                        "privateIPAllocationMethod": "Dynamic",
+                        "publicIPAddress": {
+                            "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('nic_pipname'))]"
+                        },                        
+                        "subnet": {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('nic_vnetname'), parameters('nic_subnetname'))]"
+                        }
+                    }
+                }
+            ]
+        }
+    }],
+    "outputs": {}
+}

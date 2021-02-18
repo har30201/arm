@@ -1,0 +1,55 @@
+{ // Vnet 1EA, Subnet 1EA
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnet-name": {
+            "type": "string",
+            "defaultValue": "virtualNetwork1"
+        },
+        "vnet-tags": {
+            "type": "string",
+            "defaultValue": "virtualNetwork1"
+        },
+        "vnet-addressspace": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/16"
+        },
+        "vnet-subnetname": {
+            "type": "string",
+            "defaultValue": "Subnet-1"
+        },
+        "vnet-subnetaddressprefix": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/24"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('vnet-name')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2019-11-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "[parameters('vnet-tags')]"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vnet-addressspace')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('vnet-subnetname')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('vnet-subnetaddressprefix')]"
+                        }
+                    }                   
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}

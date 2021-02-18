@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnet-name": {
+            "value": "rom-arm-vnet"
+        },
+        "vnet-tags": {
+            "value": "arm template"
+        },
+        "vnet-addressspace": {
+            "value": "10.0.0.0/16"
+        },
+        "vnet-subnetname": {
+            "value": "Subnet-1"
+        },
+        "vnet-subnetaddressprefix": {
+            "value": "10.0.0.0/24"
+        }
+    }
+}

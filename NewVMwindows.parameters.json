@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Nic_Vnetname": {
+            "value": "rom-arm-vnet"
+        },
+        "Nic_Subnetname": {
+            "value": "new_subnet"
+        },
+        "Vmname": {
+            "value": "windowsVM1"
+        },
+        "Nicname": {
+            "value": "windowsVM1-NIC"
+        },
+        "vmtags": {
+            "value": "windowsVM1"
+        },
+        "vmsize": {
+            "value": "Standard_A2_v2"
+        },
+        "vmuser": {
+            "value": "adminUsername"
+        },
+        "vmpwd": {
+            "value": "adminPassword01!!"
+        },
+        "vmwindowsvs": {
+            "value": "2019-Datacenter"
+        }
+    }
+}
